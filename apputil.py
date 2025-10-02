@@ -14,6 +14,7 @@ class Genius:
         """
         self.access_token = access_token
         self.headers = {"Authorization": "Bearer " + self.access_token}
+        self.genius_url = "https://api.genius.com"
         
 
 class Genius:
@@ -21,7 +22,7 @@ class Genius:
 
         ACCESS_
 
-        search_url = f"https://api.genius.com/search?q={search_term}"
+        search_url = f"{self.genius_url}/search?q={search_term}"
         resp = requests.get(search_url, headers = self.headers)
         
         search_data = resp.json()
