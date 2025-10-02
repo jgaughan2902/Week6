@@ -18,8 +18,6 @@ class Genius:
         
     def get_artist(self, search_term):
 
-        ACCESS_
-
         search_url = f"{self.genius_url}/search?q={search_term}"
         resp = requests.get(search_url, headers = self.headers)
         
