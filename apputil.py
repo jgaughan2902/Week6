@@ -19,14 +19,14 @@ class Genius:
     def get_artist(self, search_term):
 
         search_url = f"{self.genius_url}/search?q={search_term}"
-        resp = requests.get(search_url, headers = self.headers)
+        response = requests.get(search_url, headers = self.headers)
         
-        search_data = resp.json()
+        search_data = response.json()
 
         artist_id = search_data['resp']['hits'][0]['result']['primary_artist']['id']
         artist_url = f"{self.genius_url}/artists/{artist_id}"
 
-        resp = requests.get(artist_url, headers = self.headers)
-        resp.raise_for_status()
+        response = requests.get(artist_url, headers = self.headers)
+        response.raise_for_status()
 
-        return resp.json()
+        return response.json()
