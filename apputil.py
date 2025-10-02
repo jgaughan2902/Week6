@@ -23,7 +23,7 @@ class Genius:
         
         search_data = response.json()
 
-        artist_id = search_data['resp']['hits'][0]['result']['primary_artist']['id']
+        artist_id = search_data['response']['hits'][0]['result']['primary_artist']['id']
         artist_url = f"{self.genius_url}/artists/{artist_id}"
 
         response = requests.get(artist_url, headers = self.headers)
