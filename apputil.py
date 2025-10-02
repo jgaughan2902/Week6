@@ -16,8 +16,6 @@ class Genius:
         self.headers = {"Authorization": "Bearer " + self.access_token}
         self.genius_url = "https://api.genius.com"
         
-
-class Genius:
     def get_artist(self, search_term):
 
         ACCESS_
