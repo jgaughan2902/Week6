@@ -35,4 +35,6 @@ class Genius:
 
         return resp.json()
 
-Genius.get_artist("Radiohead")
+ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
+genius = Genius(ACCESS_TOKEN)
+genius.get_artist("Radiohead")
