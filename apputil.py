@@ -34,7 +34,3 @@ class Genius:
         resp.raise_for_status()
 
         return resp.json()
-
-ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
-genius = Genius(ACCESS_TOKEN)
-genius.get_artist("Radiohead")
