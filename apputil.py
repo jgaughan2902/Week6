@@ -46,8 +46,8 @@ class Genius:
 
                 data = {
                     'search_term':term,
-                    'artist_name':artist.get('artist_name')
-                    'artist_id':artist.get('artist_id')
+                    'artist_name':artist.get('artist_name'),
+                    'artist_id':artist.get('artist_id'),
                     'follower_count':artist.get('follower_count')
                 }
 
