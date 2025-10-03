@@ -39,7 +39,7 @@ class Genius:
         artist_data = []
         
         for term in search_terms:
-            artists_json = self.get_artist(term)
+            artist_json = self.get_artist(term)
 
             artist = artist_json['response']['artist']
 
@@ -51,5 +51,5 @@ class Genius:
                 }
 
             artist_data.append(data)
-            
+
         return pandas.Dataframe(artist_data)
