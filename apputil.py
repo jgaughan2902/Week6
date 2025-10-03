@@ -26,6 +26,9 @@ class Genius:
         
         search_data = response.json()
 
+        if not search_data['response']['hits']:
+            return None
+
         artist_id = search_data['response']['hits'][0]['result']['primary_artist']['id']
         artist_url = f"{self.genius_url}/artists/{artist_id}"
 
@@ -39,16 +42,22 @@ class Genius:
         artist_data = []
         
         for term in search_terms:
-            artist_json = self.get_artist(term)
+            try:
 
-            artist = artist_json['response']['artist']
+                artist_json = self.get_artist(term)
 
-            data = {
-                'search_term':term,
-                'artist_name':artist.get('artist_name'),
-                'artist_id':artist.get('artist_id'),
-                'followers_count':artist.get('followers_count')
-                }
+                if artist_json is None:
+                    print(f"Warning: No artist for: '{term}'")
+                    continue
+                
+                artist = artist_json['response']['artist']
+
+                data = {
+                    'search_term':term,
+                    'artist_name':artist.get('artist_name'),
+                    'artist_id':artist.get('artist_id'),
+                    'followers_count':artist.get('followers_count')
+                    }
 
             artist_data.append(data)
 
