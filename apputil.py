@@ -52,4 +52,4 @@ class Genius:
 
             artist_data.append(data)
 
-        return pandas.Dataframe(artist_data)
+        return pandas.DataFrame(artist_data)
