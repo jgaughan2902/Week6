@@ -49,7 +49,7 @@ class Genius:
                 if artist_json is None:
                     print(f"Warning: No artist for: '{term}'")
                     continue
-                
+
                 artist = artist_json['response']['artist']
 
                 data = {
@@ -58,6 +58,10 @@ class Genius:
                     'artist_id':artist.get('artist_id'),
                     'followers_count':artist.get('followers_count')
                     }
+
+            except Exception as e:
+                print(f"Error processing '{term}':{e}")
+                continue
 
             artist_data.append(data)
 
