@@ -39,17 +39,17 @@ class Genius:
         artist_data = []
         
         for term in search_terms:
-            try:
-                artists_json = self.get_artist(term)
+            artists_json = self.get_artist(term)
 
-                artist = artist_json['response']['artist']
+            artist = artist_json['response']['artist']
 
-                data = {
-                    'search_term':term,
-                    'artist_name':artist.get('artist_name'),
-                    'artist_id':artist.get('artist_id'),
-                    'follower_count':artist.get('follower_count')
+            data = {
+                'search_term':term,
+                'artist_name':artist.get('artist_name'),
+                'artist_id':artist.get('artist_id'),
+                'follower_count':artist.get('follower_count')
                 }
 
-                artist_data.append(data)
+            artist_data.append(data)
+            
         return pandas.Dataframe(artist_data)
