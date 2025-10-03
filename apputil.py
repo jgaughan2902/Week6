@@ -1,6 +1,6 @@
 import requests
 import os
-import pandas
+import pandas as pd
 
 # Exercise 1 and 2
 
@@ -47,9 +47,9 @@ class Genius:
                 'search_term':term,
                 'artist_name':artist.get('artist_name'),
                 'artist_id':artist.get('artist_id'),
-                'follower_count':artist.get('follower_count')
+                'followers_count':artist.get('followers_count')
                 }
 
             artist_data.append(data)
 
-        return pandas.DataFrame(artist_data)
+        return pd.DataFrame(artist_data)
