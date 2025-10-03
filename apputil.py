@@ -1,5 +1,8 @@
 import requests
 import os
+import pandas
+
+# Exercise 1 and 2
 
 class Genius:
     """
@@ -30,3 +33,23 @@ class Genius:
         response.raise_for_status()
 
         return response.json()
+
+    def get_artists(self, search_terms):
+        
+        artist_data = []
+        
+        for term in search_terms:
+            try:
+                artists_json = self.get_artist(term)
+
+                artist = artist_json['response']['artist']
+
+                data = {
+                    'search_term':term,
+                    'artist_name':artist.get('artist_name')
+                    'artist_id':artist.get('artist_id')
+                    'follower_count':artist.get('follower_count')
+                }
+
+                artist_data.append(data)
+        return pandas.Dataframe(artist_data)
